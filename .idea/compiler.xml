@@ -1,48 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <resourceExtensions />
-    <wildcardResourcePatterns>
-      <entry name="!?*.java" />
-      <entry name="!?*.form" />
-      <entry name="!?*.class" />
-      <entry name="!?*.groovy" />
-      <entry name="!?*.scala" />
-      <entry name="!?*.flex" />
-      <entry name="!?*.kt" />
-      <entry name="!?*.clj" />
-      <entry name="!?*.aj" />
-    </wildcardResourcePatterns>
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="false">
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+      <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="clientui" />
-        <module name="config-server" />
         <module name="eureka-server" />
-        <module name="mcommandes" />
+        <module name="config-server" />
         <module name="mpaiement" />
-        <module name="mproduits" />
-        <module name="springadmin" />
+        <module name="mexpedition" />
         <module name="zuul-server" />
+        <module name="mcommandes" />
+        <module name="mproduits" />
+        <module name="clientui" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="clientui" target="1.8" />
-      <module name="config-server" target="1.8" />
-      <module name="eureka-server" target="1.8" />
-      <module name="mcommandes" target="1.8" />
-      <module name="microservice-expedition" target="1.8" />
-      <module name="microservice-suivi" target="1.8" />
-      <module name="mpaiement" target="1.8" />
-      <module name="mproduits" target="1.8" />
-      <module name="springadmin" target="1.8" />
-      <module name="zuul-server" target="1.8" />
-    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="clientui" options="-parameters" />
+      <module name="config-server" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="mcommandes" options="-parameters" />
+      <module name="mexpedition" options="-parameters" />
+      <module name="mpaiement" options="-parameters" />
+      <module name="mproduits" options="-parameters" />
+      <module name="zuul-server" options="-parameters" />
+    </option>
   </component>
 </project>

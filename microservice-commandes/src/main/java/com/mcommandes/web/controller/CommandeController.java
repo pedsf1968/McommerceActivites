@@ -23,7 +23,7 @@ public class CommandeController {
 
         Commande nouvelleCommande = commandesDao.save(commande);
 
-        if(nouvelleCommande == null) throw new ImpossibleAjouterCommandeException("Impossible d'ajouter cette commande");
+        if(nouvelleCommande == null) throw new ImpossibleAjouterCommandeException("Impossible d'ajouter cette commande !");
 
         return new ResponseEntity<Commande>(commande, HttpStatus.CREATED);
     }
