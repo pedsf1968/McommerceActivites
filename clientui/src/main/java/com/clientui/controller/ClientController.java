@@ -123,7 +123,7 @@ public class ClientController {
             ExpeditionBean nouvelleExpedition = new ExpeditionBean();
             nouvelleExpedition.setIdCommande(idCommande);
             nouvelleExpedition.setEtat(ExpeditionBean.EXPEDITION_EN_PREPARATION);
-            expeditionProxy.ajouterExpedition(nouvelleExpedition);
+            nouvelleExpedition = expeditionProxy.ajouterExpedition(nouvelleExpedition).getBody();
         }
 
         model.addAttribute("paiementOk", paiementAccepte); // on envoi un Boolean paiementOk à la vue
@@ -143,7 +143,7 @@ public class ClientController {
     @RequestMapping(value = "/suivi/{expeditionId}")
     public String suiviExpedition(@PathVariable int expeditionId, Model model){
 
-        ExpeditionBean expedition = expeditionProxy.recupererUneExpedition(expeditionId);
+        ExpeditionBean expedition = expeditionProxy.recupererUneExpedition(expeditionId).getBody();
 
         model.addAttribute("expedition", expedition);
 
@@ -164,7 +164,7 @@ public class ClientController {
 
         model.addAttribute("expedition", expedition);
 
-        return "CommandeSuivi";
+        return "Suivi";
     }
 
 

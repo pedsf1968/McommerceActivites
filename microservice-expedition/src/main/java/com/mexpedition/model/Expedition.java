@@ -17,10 +17,7 @@ public class Expedition {
     private Integer idCommande;
     private Integer etat = EXPEDITION_EN_PREPARATION;
 
-
-
-    public Expedition() {
-    }
+    public Expedition() { }
 
     public Expedition(Integer id, Integer idCommande, Integer etat) {
         this.id = id;

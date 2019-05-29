@@ -8,11 +8,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="eureka-server" />
         <module name="config-server" />
-        <module name="mpaiement" />
         <module name="mexpedition" />
         <module name="zuul-server" />
         <module name="mcommandes" />
         <module name="mproduits" />
+        <module name="mpaiement" />
         <module name="clientui" />
       </profile>
     </annotationProcessing>

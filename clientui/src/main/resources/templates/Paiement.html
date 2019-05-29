@@ -23,6 +23,7 @@
                 Si vous vous sentez à l'aise, vous pouvez créer un formulaire pour accepter le numéro de la CB, que vous traiterez dans le contrôleur grâce à
                 un <i>PostMapping</i>.
             </p>
+            <p th:text="'Montant à payer : '+${montant}" class="font-weight-bold"></p>
 
             <!-- On passe l'id de la commande ET le montant de celle-ci afin que le contrôleur ait les informations nécessaires pour faire appel au microservice de paiement -->
             <p>
