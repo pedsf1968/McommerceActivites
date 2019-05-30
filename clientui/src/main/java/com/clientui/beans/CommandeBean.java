@@ -4,19 +4,13 @@ import java.util.Date;
 
 
 public class CommandeBean {
-
     private int id;
-
     private Integer productId;
-
     private Date dateCommande;
-
     private Integer quantite;
-
     private Boolean commandePayee;
 
-    public CommandeBean() {
-    }
+    public CommandeBean() {  }
 
     public int getId() {
         return id;

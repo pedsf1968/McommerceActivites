@@ -80,7 +80,6 @@ public class ClientController {
     @RequestMapping(value = "/commander-produit/{idProduit}/{montant}")
     public String passerCommande(@PathVariable int idProduit, @PathVariable Double montant,  Model model){
 
-
         CommandeBean commande = new CommandeBean();
 
         //On renseigne les propriétés de l'objet de type CommandeBean que nous avons crée
@@ -117,14 +116,8 @@ public class ClientController {
 
         Boolean paiementAccepte = false;
         //si le code est autre que 201 CREATED, c'est que le paiement n'a pas pu aboutir.
-        if(paiement.getStatusCode() == HttpStatus.CREATED) {
+        if(paiement.getStatusCode() == HttpStatus.CREATED)
             paiementAccepte = true;
-            // on commance l'expédition
-            ExpeditionBean nouvelleExpedition = new ExpeditionBean();
-            nouvelleExpedition.setIdCommande(idCommande);
-            nouvelleExpedition.setEtat(ExpeditionBean.EXPEDITION_EN_PREPARATION);
-            nouvelleExpedition = expeditionProxy.ajouterExpedition(nouvelleExpedition).getBody();
-        }
 
         model.addAttribute("paiementOk", paiementAccepte); // on envoi un Boolean paiementOk à la vue
         // on envoie id de la commande pour le suivi de la commande et non de l'expédition

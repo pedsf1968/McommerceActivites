@@ -108,16 +108,14 @@ public class ExpeditionController {
      */
     @GetMapping(value = "/commandes/{idCommande}")
     public Expedition recupererUneExpeditionByCommande(@PathVariable int idCommande){
-        List<Expedition> expeditionList = expeditionDao.findAll();
-        Expedition expedition = null;
 
-        for(Expedition ex: expeditionList)
-             if(ex.getIdCommande().equals(idCommande)) expedition = ex;
-
-        if(expedition==null)
-            throw new ExpeditionNotFoundException("Cette expédition n'existe pas !");
-
-        return expedition;
+    	Optional<Expedition> expedition = expeditionDao.findByIdCommande(idCommande);
+    	
+         if (!expedition.isPresent()) {
+            throw new ExpeditionNotFoundException("Cette expedition n'existe pas");
+        } else {
+            return expedition.get();
+        }
     }
 
 

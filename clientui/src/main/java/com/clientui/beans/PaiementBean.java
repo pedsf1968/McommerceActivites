@@ -4,11 +4,8 @@ package com.clientui.beans;
 public class PaiementBean {
 
     private int id;
-
     private Integer idCommande;
-
     private Double montant;
-
     private Long numeroCarte;
 
     public PaiementBean() {

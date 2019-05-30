@@ -4,17 +4,12 @@ package com.clientui.beans;
 public class ProductBean {
 
     private int id;
-
     private String titre;
-
     private String description;
-
     private String image;
-
     private Double prix;
 
-    public ProductBean() {
-    }
+    public ProductBean() {  }
 
     public int getId() {
         return id;

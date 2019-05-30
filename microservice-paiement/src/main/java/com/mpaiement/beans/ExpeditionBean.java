@@ -1,36 +1,26 @@
-package com.mexpedition.model;
+package com.mpaiement.beans;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
-public class Expedition {
+public class ExpeditionBean {
     public static final Integer EXPEDITION_EN_PREPARATION = 0;
     public static final Integer EXPEDITION_EXPEDIEE = 1;
     public static final Integer EXPEDITION_LIVREE = 2;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
+    private int id;
     private Integer idCommande;
-    private Integer etat = EXPEDITION_EN_PREPARATION;
+    private Integer etat;
 
-    public Expedition() { }
+    public ExpeditionBean() {  }
 
-    public Expedition(Integer id, Integer idCommande, Integer etat) {
-        this.id = id;
+    public ExpeditionBean(int idCommande) {
         this.idCommande = idCommande;
-        this.etat = etat;
+        this.etat = EXPEDITION_EN_PREPARATION;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -52,7 +42,8 @@ public class Expedition {
 
     @Override
     public String toString() {
-        return "Expedition{" +
+
+        return "ExpeditionBean{" +
                 "id=" + id +
                 ", idCommande=" + idCommande +
                 ", etat=" + etat +

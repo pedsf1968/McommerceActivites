@@ -23,22 +23,16 @@
 
             <p >Etat de la commande :</p>
 
-            <p th:if="${expedition.etat}==0" class="font-weight-bold" style="color:orange">
-                En préparation
-            </p>
-
-            <p th:if="${expedition.etat}==1" class="font-weight-bold" style="color:green">
-                Expediée
-            </p>
-
-            <p th:if="${expedition.etat}==2" class="font-weight-bold" style="color:black">
-                Livrée
-            </p>
-
+            <th:block th:switch="${expedition.etat}">
+ 				<p th:case="0" class="text-primary font-weight-bold">En préparation</p>
+                <p th:case="1" class="text-success font-weight-bold">Exp&eacute;di&eacute;e</p>
+                <p th:case="2" class="text-info font-weight-bold">Livr&eacute;e</p>
+                <p th:case="*" class="text-danger font-weight-bold">&Eacute;tat inconnu !</p>
+            </th:block>
 
         </div>
     </div>
-
+    <a th:href="@{|/|}" class="font-weight-bold text-center">ACCUEIL</a>
 </div>
 
 

@@ -1,9 +1,11 @@
 package com.mpaiement.web.controller;
 
 import com.mpaiement.beans.CommandeBean;
+import com.mpaiement.beans.ExpeditionBean;
 import com.mpaiement.dao.PaiementDao;
 import com.mpaiement.model.Paiement;
 import com.mpaiement.proxies.MicroserviceCommandeProxy;
+import com.mpaiement.proxies.MicroserviceExpeditionProxy;
 import com.mpaiement.web.exceptions.PaiementExistantException;
 import com.mpaiement.web.exceptions.PaiementImpossibleException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ public class PaiementController {
 
     @Autowired
     MicroserviceCommandeProxy microserviceCommandeProxy;
+
+    @Autowired
+    MicroserviceExpeditionProxy microserviceExpeditionProxy;
 
     /*
     * Opération pour enregistrer un paiement et notifier le microservice commandes pour mettre à jour le statut de la commande en question
@@ -50,6 +55,9 @@ public class PaiementController {
 
         //on envoi l'objet commande mis à jour au microservice commande afin de mettre à jour le status de la commande.
         microserviceCommandeProxy.updateCommande(commande);
+
+        // création de l'expédition
+        microserviceExpeditionProxy.ajouterExpedition(new ExpeditionBean(commande.getId()));
 
         //on renvoi 201 CREATED pour notifier le client au le paiement à été enregistré
         return new ResponseEntity<Paiement>(nouveauPaiement, HttpStatus.CREATED);
